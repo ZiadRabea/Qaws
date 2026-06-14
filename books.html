@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>قوس | قسم الكتب</title>
+  <meta name="description" content="قوس - قسم الكتب المختارة بعناية" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(79, 52, 40, 0.08)',
+            glow: '0 20px 60px rgba(122, 75, 54, 0.18)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .card-border {
+      box-shadow: 0 1px 0 rgba(255,255,255,.7) inset, 0 1px 18px rgba(15,23,42,.05);
+    }
+
+    .hero-mockup {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+    }
+
+    .mockup-shell {
+      width: min(100%, 470px);
+      border-radius: 2rem;
+      background: linear-gradient(180deg, rgba(255,250,242,.95), rgba(243,234,223,.92));
+      border: 1px solid rgba(229,216,199,.95);
+      box-shadow: 0 24px 60px rgba(79,52,40,.10);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-shell::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(122,75,54,.12), transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .mockup-main {
+      border-radius: 1.7rem;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid rgba(229,216,199,.95);
+      box-shadow: 0 14px 32px rgba(79,52,40,.08);
+      min-height: 430px;
+      position: relative;
+    }
+
+    .mockup-main img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mockup-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 18px;
+      background: linear-gradient(180deg, transparent, rgba(79,52,40,.84));
+      color: #fff;
+    }
+
+    .mockup-overlay h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .mockup-overlay p {
+      margin: 0;
+      font-size: .94rem;
+      line-height: 1.8;
+      opacity: .95;
+    }
+
+    .floating-card {
+      position: absolute;
+      width: 150px;
+      border-radius: 1.15rem;
+      overflow: hidden;
+      background: rgba(255,255,255,.95);
+      border: 1px solid rgba(229,216,199,.9);
+      box-shadow: 0 16px 34px rgba(79,52,40,.12);
+    }
+
+    .floating-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .floating-card .cap {
+      padding: 10px 12px;
+      font-size: .82rem;
+      font-weight: 800;
+      color: #4f3428;
+      line-height: 1.5;
+    }
+
+    .float-one {
+      top: 18px;
+      left: -18px;
+      transform: rotate(-8deg);
+    }
+
+    .float-two {
+      bottom: 26px;
+      right: -18px;
+      transform: rotate(7deg);
+    }
+
+    .book-chip {
+      position: absolute;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(122,75,54,.10);
+      border: 1px solid rgba(122,75,54,.14);
+      color: #7a4b36;
+      font-weight: 800;
+      font-size: .82rem;
+      box-shadow: 0 10px 20px rgba(79,52,40,.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .chip-one { top: 20px; right: 26px; }
+    .chip-two { bottom: 18px; left: 18px; }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .hero-stat {
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(229,216,199,.95);
+      background: rgba(255,255,255,.68);
+      color: #7d675b;
+      line-height: 1.7;
+      font-size: .92rem;
+    }
+
+    .hero-stat strong {
+      display: block;
+      color: #4f3428;
+      font-size: 1.15rem;
+      margin-bottom: 3px;
+    }
+  </style>
+</head>
+
+<body class="font-cairo text-[#4f3428] bg-gradient-to-b from-[#f6f1e6] via-white to-white">
+  <header class="sticky top-0 z-50 border-b border-[#e5d8c7]/70 bg-white/80 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4 gap-4">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="logo.jpg" alt="قوس" class="w-12 h-12 rounded-2xl shadow-glow object-cover border border-[#e5d8c7]">
+          <div>
+            <h1 class="text-xl font-extrabold text-[#4f3428] leading-none">مكتبة قوس</h1>
+            <p class="text-sm text-[#7d675b]">كتب، معرفة، وهدوء في مكان واحد</p>
+          </div>
+        </a>
+
+        <a href="index.html#collection" class="inline-flex items-center gap-2 rounded-full bg-[#7a4b36] text-white px-5 py-3 text-sm font-bold shadow-soft hover:bg-[#9a6a54] transition">
+          رجوع للرئيسية <span>←</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="pageRoot"></main>
+
+  <footer class="border-t border-[#e5d8c7] bg-white/60 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="text-[#7d675b]">© <span id="year"></span> مكتبة قوس</p>
+      <a href="index.html" class="text-[#7a4b36] font-bold hover:text-[#9a6a54] transition">العودة للرئيسية</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const pageData = {
+      title: "Books",
+      badge: "Books / Reading",
+      heroTitle: "كتب مختارة بعناية",
+      heroText: "قسم مخصص للكتب الجميلة التي تجمع بين الفكرة، المتعة، والهدوء. صفحة أنيقة ومناسبة للقراءة أو كهدية لها معنى.",
+      products: [
+        {
+          name: "العادات الذرية",
+          desc: `كتاب عملي جدًا عن بناء العادات الصغيرة التي تصنع فرقًا كبيرًا.
+مناسب لمن يحب الكتب التي تعطي خطوات واضحة ونتائج ملموسة.`,
+          img: "imgs/atomic-habits.jpg",
+          order: "أريد طلب: العادات الذرية"
+        },
+        {
+          name: "سيكولوجيا المال",
+          desc: `كتاب مختلف في نظرته للمال.
+يركز على طريقة التفكير قبل الأرقام، ويقدم أفكارًا هادئة وعميقة.`,
+          img: "imgs/psychology-money.jpg",
+          order: "أريد طلب: سيكولوجيا المال"
+        },
+        {
+          name: "محاط بالحمقى",
+          desc: `كتاب خفيف وممتع في أسلوبه، يشرح الشخصيات وأنماط التعامل بطريقة بسيطة وواضحة.`,
+          img: "imgs/people-image.jpg",
+          order: "أريد طلب: محاط بالحمقى"
+        },
+        {
+          name: "فن اللامبالاة",
+          desc: `كتاب يناقش الهدوء النفسي والبساطة من زاوية مختلفة.
+مناسب كهدية تحمل معنى عميقًا ومريحًا.`,
+          img: "imgs/subtle-art.jpg",
+          order: "أريد طلب: فن اللامبالاة"
+        },
+        {
+          name: "الرجال من المريخ والنساء من الزهرة",
+          desc: `كتاب لطيف وسهل القراءة عن فهم العلاقات واختلاف الطبائع.
+اختيار جميل لمن يحب الكتب ذات الفائدة العملية.`,
+          img: "imgs/relationships.jpg",
+          order: "أريد طلب: الرجال من المريخ والنساء من الزهرة"
+        },
+        {
+          name: "رواية مختارة",
+          desc: `رواية تضيف لمسة أدبية جميلة إلى الصفحة.
+يمكن استبدالها بأي رواية تناسب ذوق الشخص الذي ستُهدى إليه الصفحة.`,
+          img: "imgs/novel.jpg",
+          order: "أريد طلب: رواية مختارة"
+        }
+      ]
+    };
+
+    const root = document.getElementById("pageRoot");
+
+    root.innerHTML = `
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f3eadf] text-[#7a4b36] font-bold text-sm mb-6 border border-[#e5d8c7]/60">
+              ${pageData.badge}
+            </span>
+            <h2 class="text-4xl md:text-6xl font-black text-[#4f3428] leading-tight">${pageData.heroTitle}</h2>
+            <p class="mt-5 text-lg md:text-xl text-[#7d675b] leading-9 max-w-2xl">${pageData.heroText}</p>
+            <div class="mt-8">
+              <a href="#books" class="inline-flex items-center gap-2 rounded-2xl bg-[#7a4b36] text-white px-6 py-4 font-bold shadow-glow hover:bg-[#9a6a54] hover:-translate-y-1 transition">
+                تصفح الكتب <span>📚</span>
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <strong>6+</strong>
+                كتب مختارة بعناية
+              </div>
+              <div class="hero-stat">
+                <strong>100%</strong>
+                لمسة شخصية وهادئة
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-mockup">
+            <div class="mockup-shell">
+              <div class="book-chip chip-one">مختارات مميزة</div>
+              <div class="book-chip chip-two">إهداء جميل</div>
+
+              <div class="mockup-main">
+                <img src="${pageData.products[0].img}" alt="${pageData.products[0].name}">
+                <div class="mockup-overlay">
+                  <h3>${pageData.products[0].name}</h3>
+                  <p>اختيار هادئ وعملي يناسب صفحة كتب راقية ومناسبة كهدية.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-card float-one">
+              <img src="${pageData.products[1].img}" alt="${pageData.products[1].name}">
+              <div class="cap">${pageData.products[1].name}</div>
+            </div>
+
+            <div class="floating-card float-two">
+              <img src="${pageData.products[3].img}" alt="${pageData.products[3].name}">
+              <div class="cap">${pageData.products[3].name}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="books" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          ${pageData.products.map(p => `
+            <article class="bg-white rounded-[1.75rem] p-5 shadow-soft border border-[#e5d8c7] card-border hover:-translate-y-2 transition duration-300 flex flex-col h-full justify-between">
+              <div class="flex-grow">
+                <img
+                  src="${p.img}"
+                  alt="${p.name}"
+                  class="w-full h-56 object-cover rounded-2xl mb-4 border border-[#e5d8c7]"
+                  onerror="this.style.display='none'"
+                >
+                <h3 class="text-xl font-extrabold text-[#4f3428]">${p.name}</h3>
+                <pre class="text-[#7d675b] mt-3 leading-7 whitespace-pre-line font-cairo">${p.desc}</pre>
+              </div>
+              <button onclick="openWhatsApp('${p.order}')" class="mt-5 w-full rounded-2xl bg-[#7a4b36] text-white py-3 font-bold hover:bg-[#9a6a54] hover:-translate-y-0.5 transition">
+                اطلب عبر واتساب
+              </button>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    `;
+
+    const phoneNumber = "+201063785330";
+    function openWhatsApp(message) {
+      const encodedMessage = encodeURIComponent(message);
+      const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  </script>
+</body>
+</html>
