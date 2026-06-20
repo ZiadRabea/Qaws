@@ -39,7 +39,6 @@
       margin:0 auto;
     }
 
-    /* Header */
     .nav{
       position:sticky;
       top:0;
@@ -126,7 +125,6 @@
       background: var(--accent-2);
     }
 
-    /* Hero */
     .hero{
       padding:56px 0 26px;
     }
@@ -239,7 +237,6 @@
       font-size:.92rem;
     }
 
-    /* Showcase */
     .showcase{
       display:grid;
       place-items:center;
@@ -258,8 +255,7 @@
     .screen{
       border-radius: 26px;
       overflow:hidden;
-      background:
-        linear-gradient(180deg, #fbf5ea, #f4eadb);
+      background: linear-gradient(180deg, #fbf5ea, #f4eadb);
       border:1px solid rgba(229,216,199,.85);
       min-height: 560px;
       display:flex;
@@ -378,7 +374,6 @@
       margin-bottom:4px;
     }
 
-    /* Sections */
     section{
       padding:26px 0;
     }
@@ -409,7 +404,7 @@
       gap:16px;
     }
 
-    .stat, .feature, .book-item, .cta{
+    .stat, .feature, .cta, .visit-card{
       background: rgba(255,255,255,.6);
       border:1px solid var(--line);
       border-radius: var(--radius);
@@ -455,65 +450,36 @@
       font-size:20px;
     }
 
-    .feature h3, .book-item h4{
+    .feature h3{
       margin:0 0 10px;
       color:var(--text);
     }
 
-    .feature p, .book-item p{
+    .feature p{
       margin:0;
       color:var(--muted);
       line-height:1.8;
     }
 
-    .bookshelf{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:16px;
-    }
-
-    .book-item{
-      padding:18px;
-      min-height:190px;
-    }
-
-    .cover{
-      width:52px;
-      height:72px;
-      border-radius:14px;
-      margin-bottom:14px;
-      box-shadow: 0 10px 18px rgba(79,52,40,.12);
-    }
-
-    .c1{background: linear-gradient(135deg, #7a4b36, #b38a73);}
-    .c2{background: linear-gradient(135deg, #9a6a54, #d7c0af);}
-    .c3{background: linear-gradient(135deg, #c9b09a, #8b5e47);}
-    .c4{background: linear-gradient(135deg, #b58f78, #f0dfce);}
-
-    .book-item span{
-      display:inline-block;
-      color:var(--accent-2);
-      margin-bottom:8px;
-      font-size:.92rem;
-    }
-
-    .cta{
-      padding:22px;
+    .visit-card{
+      padding:28px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:18px;
     }
 
-    .cta h3{
+    .visit-card h3{
       margin:0 0 8px;
-      font-size:1.6rem;
+      font-size:1.7rem;
+      color:var(--text);
     }
 
-    .cta p{
+    .visit-card p{
       margin:0;
       color:var(--muted);
       line-height:1.8;
+      max-width:60ch;
     }
 
     footer{
@@ -531,7 +497,6 @@
       padding-top:18px;
     }
 
-    /* Reveal */
     .reveal{
       opacity:0;
       transform: translateY(18px);
@@ -543,12 +508,10 @@
       transform: translateY(0);
     }
 
-    /* Responsive */
     @media (max-width: 980px){
       .hero-grid,
       .stats,
-      .features,
-      .bookshelf{
+      .features{
         grid-template-columns:1fr;
       }
 
@@ -562,7 +525,7 @@
 
       .nav-inner,
       .section-head,
-      .cta,
+      .visit-card,
       .footer-inner{
         flex-direction:column;
         align-items:flex-start;
@@ -605,6 +568,10 @@
       .screen{
         min-height: 520px;
       }
+
+      .visit-card{
+        padding:22px;
+      }
     }
   </style>
 </head>
@@ -612,7 +579,6 @@
   <header class="nav">
     <div class="container nav-inner">
       <div class="brand">
-        <!-- ضع شعارك هنا -->
         <img src="logo.jpg" alt="قوس" />
         <div class="brand-text">
           <strong>مكتبة قوس</strong>
@@ -622,11 +588,11 @@
 
       <nav class="nav-links" aria-label="روابط التنقل">
         <a href="#features">الخدمات</a>
-        <a href="#collection">الأقسام</a>
+        <a href="#visit-store">المتجر</a>
         <a href="#cta">التواصل</a>
       </nav>
 
-      <a class="nav-cta" href="https://chat.whatsapp.com/GPKPtHQNpzoHfrNmJOzsd1?fbclid=IwY2xjawRZ3lxleHRuA2FlbQIxMABicmlkETFDV0d0OWlkYUdaN2RrUHpZc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnqUBPpNltlt627EZ4OMKySSjUfJ-TfIRghcml-V5E58XUU3nXyp1a3vHn05_aem_mqhrTt-B7os2A0nvXYGrHg">
+      <a class="nav-cta" href="https://www.sirati.space/stores/qaws/" target="_blank" rel="noopener">
         زرنا الآن
       </a>
     </div>
@@ -644,7 +610,7 @@
             علم، فكر، وفنون. مساحة هادئة لاختيار كتابك القادم، والعودة إلى القراءة بشغف.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#collection">تصفح الأقسام ✨</a>
+            <a class="btn btn-primary" href="https://www.sirati.space/stores/qaws/" target="_blank" rel="noopener">تصفح المتجر ✨</a>
             <a class="btn btn-secondary" href="#features">اكتشف الخدمات</a>
           </div>
           <div class="meta-row">
@@ -756,55 +722,28 @@
       </div>
     </section>
 
-    <section id="collection">
+    <section id="visit-store">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="visit-card reveal">
           <div>
-            <h2>أقسام المكتبة</h2>
-            <p>تصفح الأقسام</p>
+            <h3>زوروا متجر قوس</h3>
+            <p>اكتشفوا الكتب المتاحة الآن في متجرنا الرسمي، وتصفحوا المجموعة بأسلوب بسيط وأنيق.</p>
           </div>
-        </div>
-
-        <div class="bookshelf">
-          <article onclick="window.open('books.html')" style="cursor:pointer;"  class="book-item reveal cursor-pointer">
-            <img src="novel.png" style="max-width:100%; border-radius: 1rem; cursor:pointer;"/>
-            <h4>الرواية والسرد</h4>
-            <span>أدب / قصص</span>
-            <p>روايات عربية وأجنبية، وحكايات تحمل المتعة والعمق في آن واحد.</p>
-          </article>
-
-          <article style="cursor:pointer;" onclick="window.open('books.html')"  class="book-item reveal cursor-pointer">
-            <img src="philosophy.png" style="max-width:100%; border-radius: 1rem; cursor:pointer;"/>
-            <h4>الفكر والفلسفة</h4>
-            <span>معرفة / تأمل</span>
-            <p>كتب تفتح باب التساؤل، وتمنح القارئ مساحة للتفكير والتأمل.</p>
-          </article>
-
-          <article style="cursor:pointer;" onclick="window.open('books.html')"  class="book-item reveal cursor-pointer">
-            <img src="self-development.png" style="max-width:100%; border-radius: 1rem; cursor:pointer;"/>
-            <h4>التطوير الذاتي</h4>
-            <span>إنتاجية / عادات</span>
-            <p>عناوين تساعد على بناء عادات أفضل وتنمية المهارات الشخصية.</p>
-          </article>
-
-          <article style="cursor:pointer;" onclick="window.open('books.html')" class="book-item reveal cursor-pointer">
-            <img src="science.png" style="max-width:100%; border-radius: 1rem; cursor:pointer;"/>
-            <h4>علوم وثقافة</h4>
-            <span>تعليم / اكتشاف</span>
-            <p>كتب علمية وثقافية تمنحك معرفة أوسع وتغذّي فضولك كل يوم.</p>
-          </article>
+          <a class="btn btn-primary" href="https://www.sirati.space/stores/qaws/" target="_blank" rel="noopener">
+            زيارة المتجر
+          </a>
         </div>
       </div>
     </section>
 
     <section id="cta">
       <div class="container">
-        <div class="cta reveal">
+        <div class="visit-card reveal">
           <div>
             <h3>جاهز لاختيار كتابك القادم من قوس؟</h3>
-            <p>زر المكتبة، تصفح الأقسام، واكتشف عناوين جديدة تناسب ذوقك واهتماماتك.</p>
+            <p>زر المتجر، وتصفح العناوين المتاحة الآن بكل سهولة.</p>
           </div>
-          <a class="btn btn-primary" href="https://chat.whatsapp.com/GPKPtHQNpzoHfrNmJOzsd1?fbclid=IwY2xjawRZ3lxleHRuA2FlbQIxMABicmlkETFDV0d0OWlkYUdaN2RrUHpZc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnqUBPpNltlt627EZ4OMKySSjUfJ-TfIRghcml-V5E58XUU3nXyp1a3vHn05_aem_mqhrTt-B7os2A0nvXYGrHg">
+          <a class="btn btn-primary" href="https://www.sirati.space/stores/qaws/" target="_blank" rel="noopener">
             زرنا الآن
           </a>
         </div>
@@ -815,7 +754,7 @@
   <footer>
     <div class="container footer-inner">
       <div>© 2026 مكتبة قوس — مساحة للقراءة والمعرفة</div>
-      <div>تجربة هادئة • مكتبة ملهمة</div>
+      <div>تجربة هادئة • متجر رسمي</div>
     </div>
   </footer>
 
